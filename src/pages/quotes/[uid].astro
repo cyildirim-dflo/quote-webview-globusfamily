@@ -1,0 +1,34 @@
+---
+import type { GetStaticPaths } from "astro";
+import { fetchQuotes } from "../../utils/api";
+import Layout from "../../layouts/Layout.astro";
+import QuoteSection from "../../components/QuoteSection.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import Footer from "../../components/Footer.astro";
+
+interface Props {
+    quote: Quote;
+}
+
+export async function getStaticPaths() {
+    const documents = await fetchQuotes();
+
+    return documents.map((quote) => {
+        return {
+            params: { uid: quote.id },
+            props: { quote: quote },
+        };
+    });
+}
+
+const { quote } = Astro.props as Props;
+---
+
+<Layout title={"Quote for " + quote.dflo.travelDetails.parties[0].name}>
+    <meta property="og:image" content=/assets/hero-image.avif />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <HeroSection quote={quote} />
+    <QuoteSection sections={quote.sections} />
+    <Footer companyName="Amadeus"/>
+</Layout>

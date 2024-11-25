@@ -1,0 +1,141 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: black;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+@font-face {
+    font-family: 'ScalaSansOT';
+    font-style: normal;
+    font-weight: normal;
+    src: local('ScalaSansOT Regular'), url('/fonts/ScalaSansOT-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'ScalaSansOT';
+    font-style: normal;
+    font-weight: 100;
+    src: local('ScalaSansOT'), url('/fonts/ScalaSansOT-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'ScalaSansOT';
+    font-style: normal;
+    font-weight: bold;
+    src: local('ScalaSansOT Black'), url('/fonts/ScalaSansOT-Black.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'AlexHarris';
+    font-style: normal;
+    font-weight: normal;
+    src: local('AlexHarris Regular'), url('/fonts/alexharris-regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'AlexHarris';
+    font-style: normal;
+    font-weight: bold;
+    src: local('AlexHarris Bold'), url('/fonts/alexharris-bold.woff') format('woff');
+}
+
+@media (min-width: 768px) {
+    .dashed-connect::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        right: -32%;
+        width: 65%;
+        height: 1px;
+        inset: 25px -30% auto auto;
+        border-top: dashed 2px #3c103f;
+    }
+
+    .dashed-connect:last-child::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashed-connect:first-child::after {
+        display: none;
+    }
+
+    .dashed-connect::after {
+        content: "";
+        position: absolute;
+        right: -100px;
+        bottom: 0px;
+        width: 2px;
+        height: 40px;
+        inset: -40px 50% auto auto;
+        border-left: dashed 2px #3c103f;
+    }
+}
+
+#pricing-table tbody tr:last-child>* {
+    padding-bottom: 43px;
+}
+
+#pricing-table tbody tr>td {
+    position: relative;
+}
+
+#pricing-table tbody tr>td::after {
+    content: "";
+    background: #E0E0E0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+}
+
+#pricing-table tbody tr:last-child>td::after {
+    content: "";
+    background: #E0E0E0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60%;
+    width: 1x;
+}
+
+.add-line-bottom {
+    padding-bottom: 30px;
+}
+
+.add-line-bottom::after {
+    content: "";
+    background: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 45px;
+}
+
+@layer components {
+    .btn-primary {
+        @apply cursor-pointer bg-primary text-white border font-sans tracking-wide px-6 py-4 transition ease-in-out rounded-md text-center
+    }
+
+    .btn-primary:hover {
+        @apply bg-white text-primary border-primary
+    }
+
+    .btn-secondary {
+        @apply cursor-pointer bg-secondary text-primary border font-sans tracking-wide py-4 px-6 transition ease-in-out rounded-md text-center
+    }
+
+    .btn-secondary:hover {
+        @apply bg-primary text-secondary
+    }
+}

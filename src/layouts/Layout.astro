@@ -1,0 +1,108 @@
+---
+// Supports weights 400-900
+import { ViewTransitions } from "astro:transitions";
+import "../styles/base.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "@fontsource/prompt";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Alexander+Roberts" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<ViewTransitions />
+		<title>{title}</title>
+	</head>
+	<body class="font-sans bg-accent">
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		color: #25282a;
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--swiper-pagination-color: black;
+		--swiper-navigation-color: var(--primary-color);
+		--swiper-navigation-top-offset: calc(100% - 35px);
+		--swiper-navigation-sides-offset: calc(50% - 200px);
+		--swiper-pagination-bullet-width: 24px;
+		--swiper-pagination-bullet-height: 2px;
+		--swiper-pagination-bottom: 18px;
+		--swiper-navigation-size: 25px;
+		--swiper-pagination-color: white;
+		--swiper-pagination-bullet-inactive-opacity: 1;
+		--swiper-pagination-bullet-inactive-color: #000;
+		--swiper-pagination-bullet-border-radius: 0;
+
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+		scrollbar-width: smooth;
+	}
+
+	.cabin-image-slider {
+		--swiper-navigation-top-offset: calc(50% - 5px);
+		--swiper-navigation-color: black;
+		--swiper-navigation-sides-offset: 20px;
+		--swiper-pagination-bullet-width: 24px;
+	}
+
+	.destination-swiper {
+		--swiper-navigation-top-offset: 200px;
+		--swiper-navigation-color: black;
+		--swiper-navigation-sides-offset: 40px;
+		--swiper-pagination-bullet-width: 24px;
+	}
+
+	.cabin-image-slider .swiper {
+		padding-right: 100px;
+	}
+	.swiper-slide {
+		width: 100% !important;
+	}
+
+	html {
+		font-size: 16px;
+	}
+
+	.swiper-button-prev,
+	.swiper-button-next {
+		z-index: 200;
+		border: 2px solid var(--primary-color);
+		width: 40px;
+		height: 40px;
+		border-radius: 40px;
+	}
+
+	.cabin-image-slider .swiper-button-prev,
+	.cabin-image-slider .swiper-button-next {
+		border: 2px solid black;
+		width: 40px;
+		height: 40px;
+		border-radius: 40px;
+	}
+
+	.swiper-button-next::after,
+	.swiper-button-prev::after {
+		font-weight: bold;
+		font-size: 18px;
+	}
+</style>

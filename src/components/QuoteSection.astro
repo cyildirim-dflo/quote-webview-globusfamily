@@ -1,0 +1,151 @@
+---
+import Itinerary from "./itinerary/Itinerary";
+import Pricing from "./pricing/Pricing";
+import ImportantInformation from "./ImportantInformation";
+import ConsultantBanner from "./ConsultantBanner.astro";
+import WhyChooseUs from "./WhyChooseUs";
+import DestinationSection from "./destinations/DestinationSection";
+import FeaturesSection from "./FeaturesSection.astro";
+import ActionsSection from "./ActionsSection";
+import CabinSection from "./CabinSection";
+import AccomodationSection from "./AccommodationSection";
+
+const typesToBeExcluded = ["CoverPage", "Footer"];
+
+interface Props {
+    sections: Section[];
+    isChild?: boolean;
+}
+
+const { sections, isChild } = Astro.props as Props;
+
+const componentsToRender = isChild
+    ? sections
+    : sections.filter((section) => {
+          if (section.type && typesToBeExcluded.includes(section.type)) {
+              return false;
+          }
+          return true;
+      });
+---
+
+<div class="w-full">
+    {
+        componentsToRender.map((section: Section, index: number) => {
+
+            const elementKey = (section.type ?? "child") + index;
+
+            switch (section.type) {
+                case "Itinerary":
+                    return (
+                        <Itinerary
+                            client:load
+                            section={section as ItinerarySection}
+                        />
+                    );
+                case "Pricing":
+                    return (
+                        <Pricing
+                            client:load
+                            id={section.type}
+                            section={section as PricingSection}
+                        />
+                    );
+                case "CabinDetails":
+                    return (
+                        <CabinSection
+                            client:load
+                            section={section as CabinSection}
+                        />
+                    );
+                case "ImportantInformation":
+                    return (
+                        <ImportantInformation
+                            client:load
+                            id={section.type}
+                            section={section as ImportantInformationSection}
+                        />
+                    );
+                case "Accommodations":
+                    return (
+                        <AccomodationSection
+                            client:load
+                            section={section as AccommodationSection}
+                        />
+                    );
+                case "ConsultantInformation":
+                    return (
+                        <ConsultantBanner
+                            id={section.type}
+                            section={section as ConsultantInformaton}
+                        />
+                    );
+                case "WhyChoose":
+                    return (
+                        <WhyChooseUs
+                            key={elementKey}
+                            section={section as WhyChooseUsSection}
+                        />
+                    );
+                case "Destinations":
+                    return (
+                        <DestinationSection
+                            client:load
+                            section={section as DestinationSection}
+                        />
+                    );
+                case "Features":
+                    return (
+                        <FeaturesSection
+                            section={section as FeatureHiglightsSection}
+                        />
+                    );
+                case "Actions":
+                    return (
+                        <ActionsSection 
+                        client:load 
+                        section={section as ActionSection} />
+                    );
+                default:
+                    return (
+                        <div
+                            id={section.type}
+                            class={
+                                "transition ease-in-out container mx-auto text-left " +
+                                (isChild
+                                    ? "py-2 "
+                                    : "pt-[80px] max-md:pt-[60px] max-w-screen-lg  max-md:px-4")
+                            }
+                        >
+                            {section.title && (
+                                <h2 class="text-2xl text-primary-950 font-vvcentra text-center pb-[50px]">
+                                    {section.title}
+                                </h2>
+                            )}
+                            {section.description && (
+                                <p class="p-1 text-xl text-basegrey text-center">
+                                    {section.description}
+                                </p>
+                            )}
+
+                            {section.link && (
+                                <a
+                                    href={section.link.url}
+                                    class="text-primary-800"
+                                >
+                                    {section.link.label ?? section.link.url}
+                                </a>
+                            )}
+
+                            {section.child && (
+                                <Astro.self
+                                    sections={section.child}
+                                    isChild={true}
+                                />
+                            )}
+                        </div>
+                    );
+            }
+        })
+    }
+</div>

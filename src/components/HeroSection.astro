@@ -1,0 +1,29 @@
+---
+import Header from "./Header.astro";
+
+interface Props {
+    quote: Quote;
+}
+
+const { quote } = Astro.props as Props;
+
+
+const [coverPageData] = quote.sections.filter(
+    (section: Section) => section.type === "CoverPage",
+) as [CoverPageContent];
+
+---
+
+<div
+    class="w-full flex flex-col bg-accent bg-scroll bg-bottom text-center px-4 md:px-10 "
+>
+    <Header quoteId={quote.id} />
+    <div class="flex-grow h-full bg-hero-image bg-cover bg-center">
+        <div class="flex flex-col items-center gap-[19px] bg-black bg-opacity-10 justify-center h-[516px]">
+            <h1 class="text-6xl text-center text-white font-voyagesdisplay ">
+            </h1>
+        <h1 class="text-xl font-bold text-center text-white">
+            </h1>
+        </div>
+    </div>
+</div>

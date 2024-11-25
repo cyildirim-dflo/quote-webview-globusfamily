@@ -1,0 +1,23 @@
+---
+import { CreditScore, HourglassTop, Payment, PriceChange } from '@mui/icons-material'
+
+interface Props {
+    pricing : Pricing
+}
+
+const {pricing} =  Astro.props  as Props
+
+---
+<div class="w-full bg-gradient-to-l from-primary-200 to-primary-100 items-center text-center">
+    <div class="grid grid-flow-row lg:grid-flow-col justify-stretch">
+        <div class="px-10 py-10 h-full">
+            <span class="text-primary-900 font-bold text-xl"> <Payment className='mb-1 mr-2'/> {pricing.pricingText + " " + pricing.sellingPrice }</span>
+        </div>
+        <div class="px-10 py-10 h-full">
+            <span class="text-primary-900 font-bold text-xl"> <CreditScore className='mb-1 mr-2'/> Deposit Value : {pricing.deposit}</span>
+        </div>
+        <div class="px-10 py-10 h-full">
+            <span class="text-primary-900 font-bold text-xl"> <HourglassTop className='mb-1 mr-2'/> Quote Validity: {pricing.quoteValidForText}</span>
+        </div>
+    </div>
+</div>

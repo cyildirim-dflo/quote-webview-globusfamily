@@ -1,0 +1,44 @@
+---
+import trustpilot from "../assets/icons/trustpilot.png";
+interface Props {
+    companyName: string;
+}
+
+const { companyName } = Astro.props as Props;
+---
+
+<div class="flex flex-col w-full bg-white">
+    <div
+        class="max-w-screen-lg mx-auto grid grid-cols-2 lg:flex lg:flex-row justify-center gap-10 py-[80px] place-items-center"
+    >
+        <img src={trustpilot.src} alt="CLIA" class="h-24 object-contain" />
+        <img
+            src="https://www.alexanderroberts.com/getmedia/f39f682f-3092-4216-91a2-f0d23bd350e9/web-BBB-logo-rev.jpg.aspx?width=270&height=160&ext=.jpg"
+            class="h-24 object-contain"
+        />
+
+        <img
+            src='https://www.alexanderroberts.com/getmedia/4cb14424-0ae9-40ce-b9ba-8d67267b2270/web-USTOA.jpg.aspx?width=270&height=160&ext=.jpg"'
+            class="h-24 object-contain"
+        />
+        <img
+            src="https://www.alexanderroberts.com/getmedia/759551ae-c6c0-46ab-ab66-d672f51cd477/TAP-logo-web-100_1.png.aspx?width=135&height=136&ext=.png"
+            class="h-24 object-contain"
+        />
+        <img
+            src="https://www.alexanderroberts.com/getmedia/8d10c80f-69a9-45e3-9fb6-8631bd5b5948/ASTAHorizontal-web-x175.jpg.aspx?width=175&height=77&ext=.jpg"
+            class="h-24 object-contain"
+        />
+        <img
+            src="https://www.alexanderroberts.com/getmedia/99070bc5-0f3b-4fc2-a4ba-d71e98a9602d/tourism-cares.png.aspx?width=270&height=160&ext=.png"
+            class="h-24 object-contain"
+        />
+    </div>
+    <div>
+        <p
+            class="tracking-[1px] font-sans font-medium text-primary text-lg text-center px-2 bg-accent py-[60px]"
+        >
+            © {new Date().getFullYear()} Alexander+Roberts. All rights reserved.
+        </p>
+    </div>
+</div>
