@@ -10,7 +10,7 @@ interface Props {
 const AccomodationSection: React.FC<Props> = ({ section }) => {
     return (
         <div className='w-full min-h-96 py-[80px] max-w-screen-xl mx-auto'>
-            <h2 className='text-4xl md:text-5xl font-bold text-center mb-[40px] w-auto font-serif text-brownish'>{section.title}</h2>
+            <h2 className='text-4xl md:text-5xl text-center mb-[40px] w-auto font-serif text-brownish'>{section.title}</h2>
             <Swiper
                 // install Swiper modules
                 modules={[Navigation, Scrollbar, A11y]}

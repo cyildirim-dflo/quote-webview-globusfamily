@@ -4,16 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#76232F",
-        secondary: "#25282A",
-        brownish: "#544842",
-        accent: "#F5F2F0",
+        primary: "#691B16",
+        secondary: "#1E1E1E",
+        accent: "#EAE8E8",
         border: "#00174454",
-        accentalt: "#E6E8EC"
+        accentalt: "#333333"
       },
       fontFamily: {
-        sans: ["ScalaSansOT", "sans-serif"],
-        serif: ["AlexHarris", "serif"],
+        sans: ["Open Sans Variable", "sans-serif"],
+        serif: ["Cardo", "serif"],
       },
       fontSize: {
         'xs': '10px',

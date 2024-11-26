@@ -16,7 +16,7 @@ const ItineraryHighlights: React.FC = () => {
         <div className='flex flex-col items-center'>
             <img
                 className='w-full md:max-w-screen-md mb-[40px] h-auto'
-                src={itineraryMap.src}
+                src="https://images.globusfamily.com/Maps/Globus/2025/KCZX.jpg"
             />
         </div>
 

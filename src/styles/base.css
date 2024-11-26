@@ -4,47 +4,12 @@
 @tailwind utilities;
 
 :root {
-    --primary-color: black;
+    --primary-color: #1E1E1E;
 }
 
 ::selection {
     background-color: var(--primary-color);
     color: white;
-}
-
-@font-face {
-    font-family: 'ScalaSansOT';
-    font-style: normal;
-    font-weight: normal;
-    src: local('ScalaSansOT Regular'), url('/fonts/ScalaSansOT-Regular.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'ScalaSansOT';
-    font-style: normal;
-    font-weight: 100;
-    src: local('ScalaSansOT'), url('/fonts/ScalaSansOT-Light.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'ScalaSansOT';
-    font-style: normal;
-    font-weight: bold;
-    src: local('ScalaSansOT Black'), url('/fonts/ScalaSansOT-Black.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'AlexHarris';
-    font-style: normal;
-    font-weight: normal;
-    src: local('AlexHarris Regular'), url('/fonts/alexharris-regular.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'AlexHarris';
-    font-style: normal;
-    font-weight: bold;
-    src: local('AlexHarris Bold'), url('/fonts/alexharris-bold.woff') format('woff');
 }
 
 @media (min-width: 768px) {
@@ -124,7 +89,7 @@
 
 @layer components {
     .btn-primary {
-        @apply cursor-pointer bg-primary text-white border font-sans tracking-wide px-6 py-4 transition ease-in-out rounded-md text-center
+        @apply cursor-pointer bg-primary text-white border font-sans tracking-wide px-6 py-4 transition ease-in-out text-center
     }
 
     .btn-primary:hover {
@@ -132,7 +97,7 @@
     }
 
     .btn-secondary {
-        @apply cursor-pointer bg-secondary text-primary border font-sans tracking-wide py-4 px-6 transition ease-in-out rounded-md text-center
+        @apply cursor-pointer bg-secondary text-primary border font-sans tracking-wide py-4 px-6 transition ease-in-out text-center
     }
 
     .btn-secondary:hover {

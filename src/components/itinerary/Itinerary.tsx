@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import 'swiper/css'
 import ItineraryHighlights from './ItineraryHighlights'
-import { Add, Remove } from '@mui/icons-material'
+import {KeyboardArrowUp } from '@mui/icons-material'
 
 interface Props {
   section: ItinerarySection
@@ -14,13 +14,14 @@ const Itinerary: React.FC<Props> = ({ section }) => {
   return (
     <div className='w-full bg-white'>
       <div className='max-md:px-4 mx-auto flex flex-col max-w-screen-xl py-[80px] justify-center overflow-hidden bg-white'>
-        <h2 className='text-4xl md:text-5xl text-center mb-[40px] text-brownish font-serif'>
+        <h2 className='text-4xl md:text-5xl text-center mb-[40px] font-serif'>
           {section.title}
         </h2>
-        <ItineraryHighlights />
         <p className='text-xl text-center mb-[40px]'>
           {section.description}
         </p>
+        <ItineraryHighlights />
+        
         {section.subtitle && (
           <h2 className='text-4xl md:text-5xl text-center mb-[40px] text-primary'>
             {section.subtitle}
@@ -77,19 +78,20 @@ const ItineraryItem: React.FC<{
     >
       <div className='flex flex-row gap-1 items-center '>
         <div className='bg-primary text-white h-[80px] w-[80px] flex items-center justify-center'>
-          <motion.div className='py-4' animate={{ rotate: isOpen ? 0 : 90 }}>
-            {isOpen ? <Remove /> : <Add />}
+          <motion.div className='py-4 text-xl' animate={{ scale: isOpen ? 1.3 : 1 }}>
+            {item.day}
           </motion.div>
         </div>
-        <div className='px-3 w-28 flex flex-col text-center'>
-          <span className='text-lg font-sans '>Day</span>
-          <span className='text-primary text-lg font-bold font-serif'> {item.day}</span>
-        </div>
-        <div className='flex-1 flex flex-col text-left pl-2'>
+        <div className='flex-1 flex flex-col text-left pl-4'>
           <h3 className='md:text-xl text-gold font-serif'>
             {' '}
             {item.header?.title}
           </h3>
+        </div>
+        <div className='h-[80px] w-[80px] flex items-center justify-center'>
+          <motion.div className='py-4' animate={{ rotate: isOpen ? 0 : 180 }}>
+            <KeyboardArrowUp className='text-4xl' />
+          </motion.div>
         </div>
       </div>
       <AnimatePresence mode='wait'>

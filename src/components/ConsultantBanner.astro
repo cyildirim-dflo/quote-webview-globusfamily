@@ -1,5 +1,5 @@
 ---
-import consultantImage from "../assets/Consultant.png";
+import consultantImage from "../assets/Consultant.jpg";
 
 interface Props {
     section: ConsultantInformaton;
@@ -23,7 +23,7 @@ const { section } = Astro.props as Props;
         </div>
         {
             section.consultant.phoneNumber && (
-                <div>
+                <div class="flex">
                     <a
                         href={section.consultant.callbackUrl}
                         class="btn-primary"

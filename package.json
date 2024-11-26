@@ -1,5 +1,5 @@
 {
-  "name": "quote-webview-alexanderroberts",
+  "name": "quote-webview-globusfamily",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -17,7 +17,8 @@
     "@aws-sdk/client-dynamodb": "^3.632.0",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
-    "@fontsource/prompt": "^5.1.0",
+    "@fontsource-variable/open-sans": "^5.1.0",
+    "@fontsource/cardo": "^5.1.0",
     "@headlessui/react": "^2.1.2",
     "@mui/icons-material": "^5.16.6",
     "@mui/material": "^5.16.6",
