@@ -177,6 +177,7 @@ interface Property {
     image?: string;
     description: string;
     amenities: string[];
+    city?: string;
 }
 
 interface ItineraryItem {

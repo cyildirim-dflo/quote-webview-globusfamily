@@ -87,6 +87,26 @@
     width: 45px;
 }
 
+.itinerary-dots {
+    background-image: radial-gradient(circle, #691B16 2px, transparent 3px);
+    position: absolute;
+    top: 30px;
+    width: 80px;
+    height: 90%;
+    margin: 0 auto;
+    margin-left: 16px;
+    background-size: 100% 15px;
+}
+
+.itinerary-item:last-child .itinerary-indicator::after {
+    content: ' ';
+    position: absolute;
+    background-color: #FFF;
+    width: 80px;
+    height: 178px;
+    top: 65px;
+}
+
 @layer components {
     .btn-primary {
         @apply cursor-pointer bg-primary text-white border font-sans tracking-wide px-6 py-4 transition ease-in-out text-center
