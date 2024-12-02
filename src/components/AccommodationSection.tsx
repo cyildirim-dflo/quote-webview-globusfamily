@@ -1,6 +1,6 @@
 import React from 'react';
-import PropertyModal from './itinerary/PropertyModal';
-import { Hotel, LocationCity, LocationOn } from '@mui/icons-material';
+import { LocationOn } from '@mui/icons-material';
+import Title from './TitleComponent';
 
 interface Props {
     section: AccommodationSection
@@ -14,7 +14,7 @@ const AccomodationSection: React.FC<Props> = ({ section }) => {
 
     return (
         <div className='w-full min-h-96 py-[80px] max-w-screen-xl mx-auto'>
-            <h2 className='text-4xl md:text-5xl text-center mb-[40px] w-auto font-serif text-brownish'>{section.title}</h2>
+            {section.title && (<Title preTitle={section.subtitle} title={section.title} classNameForArrow='bg-accent' />)}
             <div className='flex flex-row gap-[20px] items-center w-full mb-3'>
                 {uniqueCities.map((city, index) => (
                     <button key={index} onClick={() => setSelectedCity(city)} className={`bg-accent uppercase py-6 px-10 text-lg font-sans bg0 ${selectedCity === city ? 'bg-primary text-white ' : ' '}`}>{city}</button>
@@ -25,9 +25,9 @@ const AccomodationSection: React.FC<Props> = ({ section }) => {
                     .map((accommodation: Property, index) => (
                         <div key={index} className='flex flex-row gap-[40px] p-4 bg-slate-100 justify-start overflow-hidden '>
                             <img src={accommodation.image} alt={accommodation.name} className='w-auto max-h-[450px] object-cover' />
-                            <div className='flext flex-col h-full gap-2'>
+                            <div className='flex flex-col h-full gap-4 '>
                                 <h3 className='text-2xl font-sans text-primary'>{accommodation.name}</h3>
-                                <span className='text-lg italic '><LocationOn/> {accommodation.address}</span>
+                                <span className='text-lg italic '><LocationOn className='text-xl' /> {accommodation.address}</span>
                                 <p className='text-lg font-sans text-secondary'>{accommodation.description}</p>
                                 <div>
                                     <ul className='flex flex-wrap gap-2 mt-2'>

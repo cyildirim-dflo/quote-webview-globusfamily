@@ -1,8 +1,5 @@
 import { DynamoDBClient, UpdateItemCommand, ScanCommand } from "@aws-sdk/client-dynamodb";
 
-interface QuoteResponse {
-    results: Quote[];
-}
 
 export async function fetchQuotes() {
     const quotes: Quote[] = [];

@@ -1,9 +1,6 @@
 import React from 'react';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { ArrowForward, CheckSharp, Close } from '@mui/icons-material';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-
+import { CheckSharp, Close } from '@mui/icons-material'; 
 interface Props {
     section: CabinSection;
 }

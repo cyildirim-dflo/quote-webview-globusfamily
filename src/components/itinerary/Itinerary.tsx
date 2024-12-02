@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import 'swiper/css'
 import ItineraryHighlights from './ItineraryHighlights'
 import { KeyboardArrowUp } from '@mui/icons-material'
+import Title from '../TitleComponent'
 
 interface Props {
   section: ItinerarySection
@@ -14,49 +15,42 @@ const Itinerary: React.FC<Props> = ({ section }) => {
   return (
     <div className='w-full bg-white'>
       <div className='max-md:px-4 mx-auto flex flex-col max-w-screen-xl py-[80px] justify-center overflow-hidden bg-white'>
-        <h2 className='text-4xl md:text-5xl text-center mb-[40px] font-serif'>
-          {section.title}
-        </h2>
-        <p className='text-xl text-center mb-[40px]'>
+        {section.title && (<Title preTitle={section.subtitle} title={section.title} />)}
+        <p className='text-xl text-center mb-[40px] font-light'>
           {section.description}
         </p>
         <ItineraryHighlights />
 
-        {section.subtitle && (
-          <h2 className='text-4xl md:text-5xl text-center mb-[40px] text-primary'>
-            {section.subtitle}
-          </h2>
-        )}
         {section.travelDetails.parties.map((party, index) => {
           return (
             <div className='flex flex-col' key={'party-' + index}>
-                <div className='relative'>
-                  <div className='itinerary-dots'></div>
-                  {party.itineraryItems.map((item, idx) => {
-                    return (
-                      <div key={idx} className='pt-[10px] pb-[10px] px-[20px] itinerary-item'>
-                        <ItineraryItem
-                          item={item}
-                          key={'itinerary-' + idx}
-                          isOpen={idx === expanded}
-                          toggleOpen={() => setExpanded(idx)}
-                        />
-                      </div>
-                    )
-                  })}
+              <div className='relative'>
+                <div className='itinerary-dots'></div>
+                {party.itineraryItems.map((item, idx) => {
+                  return (
+                    <div key={idx} className='pt-[10px] pb-[10px] px-[20px] itinerary-item'>
+                      <ItineraryItem
+                        item={item}
+                        key={'itinerary-' + idx}
+                        isOpen={idx === expanded}
+                        toggleOpen={() => setExpanded(idx)}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+              {section.pdfLink && (
+                <div className='mt-[40px] text-center flex items-center justify-center '>
+                  <a
+                    href={section.pdfLink}
+                    target='_blank'
+                    className='btn-primary'
+                  >
+                    {' '}
+                    Download Trip Details
+                  </a>
                 </div>
-                {section.pdfLink && (
-                  <div className='mt-[40px] text-center flex items-center justify-center '>
-                    <a
-                      href={section.pdfLink}
-                      target='_blank'
-                      className='btn-primary'
-                    >
-                      {' '}
-                      Download Trip Details
-                    </a>
-                  </div>
-                )}
+              )}
             </div>
           )
         })}
