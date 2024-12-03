@@ -8,7 +8,7 @@ interface Props {
 const Footer: React.FC<Props> = ({ companyName }) => {
     return (
         <div className="flex flex-col w-full bg-accent">
-            <div className="text-center max-w-screen-xl mx-auto py-[40px]">
+            <div className="text-center max-w-screen-xl mx-auto py-[80px]">
                 <h3 className="text-3xl font-serif mb-4 border-y border-[#FEBC11] inline-block mt-0px relative p-2">
                     <Navigation className="text-[#FEBC11] nav-icon"  />
                     You Dream <span className="text-[#FEBC11] text-[60px] leading-[1px] mr-4">.</span>  
