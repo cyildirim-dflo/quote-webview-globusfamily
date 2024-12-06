@@ -17,7 +17,7 @@ const Footer: React.FC<Props> = ({ companyName }) => {
                 <p className="text-xl w-full text-center font-light">
                     Globus takes you beyond the guidebooks with more ways to discover each destination.
                 </p>
-                <div className="flex flex-row">
+                <div className="flex flex-col md:flex-row">
                     <div className="p-4">
                         <h2 className="text-primary text-2xl font-serif">Local Favorites</h2>
                         <p className="text-lg">

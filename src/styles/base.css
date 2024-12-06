@@ -129,9 +129,15 @@
     top: 65px;
 }
 
+@media (max-width: 768px) {
+    .itinerary-item:last-child .itinerary-indicator::after {
+        height: 50px;
+    }
+}
+
 @layer components {
     .btn-primary {
-        @apply cursor-pointer bg-primary text-white border font-sans tracking-wide px-6 py-4 transition ease-in-out text-center
+        @apply cursor-pointer bg-primary text-white border font-sans tracking-wide px-6 py-4 transition ease-in-out text-center overflow-hidden
     }
 
     .btn-primary:hover {

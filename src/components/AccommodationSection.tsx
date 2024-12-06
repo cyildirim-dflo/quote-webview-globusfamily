@@ -17,13 +17,13 @@ const AccomodationSection: React.FC<Props> = ({ section }) => {
             {section.title && (<Title preTitle={section.subtitle} title={section.title} classNameForArrow='bg-accent' />)}
             <div className='flex flex-row gap-[20px] items-center w-full mb-3'>
                 {uniqueCities.map((city, index) => (
-                    <button key={index} onClick={() => setSelectedCity(city)} className={`bg-accent uppercase py-6 px-10 text-lg font-sans bg0 ${selectedCity === city ? 'bg-primary text-white ' : ' '}`}>{city}</button>
+                    <button key={index} onClick={() => setSelectedCity(city)} className={`bg-accent uppercase py-4 md:py-6 px-4 md:px-10 text-base md:text-lg font-sans bg0 ${selectedCity === city ? 'bg-primary text-white ' : ' '}`}>{city}</button>
                 ))}
             </div>
             <div className='flex flex-col gap-[40px] overflow-hidden '>
                 {section.accommodations.filter((accommodation: Property) => accommodation.city === selectedCity)
                     .map((accommodation: Property, index) => (
-                        <div key={index} className='flex flex-row gap-[40px] p-4 bg-slate-100 justify-start overflow-hidden '>
+                        <div key={index} className='flex flex-col md:flex-row gap-[40px] p-4 bg-slate-100 justify-start overflow-hidden '>
                             <img src={accommodation.image} alt={accommodation.name} className='w-auto max-h-[450px] object-cover' />
                             <div className='flex flex-col h-full gap-4 '>
                                 <h3 className='text-2xl font-sans text-primary'>{accommodation.name}</h3>
